@@ -280,35 +280,36 @@ public class SoccerDatabase implements SoccerDB
 	@Override
     public SoccerPlayer playerNum(int idx, String teamName)
     {
-        if(idx >= hashtable1.size())
-        {
-            return null;
-        }
-        else if (teamName == null)
+        List<SoccerPlayer> player = new ArrayList<SoccerPlayer>();
+        if (teamName == null)
         {
             Set<String> keys = hashtable1.keySet();
-            List<SoccerPlayer> noTeam = new ArrayList<SoccerPlayer>();
             for(String key: keys)
             {
                 SoccerPlayer temp = hashtable1.get(key);
-                noTeam.add(temp);
-
+                player.add(temp);
             }
-            return noTeam.get(idx);
         }
-        else
+        else if (teamName != null)
         {
             Set<String> keys = hashtable1.keySet();
-            List<SoccerPlayer> team = new ArrayList<SoccerPlayer>();
             for(String key: keys)
             {
                 SoccerPlayer temp = hashtable1.get(key);
                 if(temp.getTeamName().equals(teamName))
                 {
-                    team.add(temp);
+                    player.add(temp);
                 }
             }
-            return team.get(idx);
+        }
+
+        if(idx >= player.size())
+        {
+            return null;
+        }
+        else
+        {
+            return player.get(idx);
         }
 
     }
