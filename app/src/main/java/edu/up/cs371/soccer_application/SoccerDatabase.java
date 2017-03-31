@@ -51,8 +51,18 @@ public class SoccerDatabase implements SoccerDB
      * @see SoccerDB#removePlayer(String, String)
      */
     @Override
-    public boolean removePlayer(String firstName, String lastName) {
-        return false;
+    public boolean removePlayer(String firstName, String lastName)
+    {
+        String key3 = firstName + "##" + lastName;
+        if(hashtable1.containsKey(key3))
+        {
+            hashtable1.remove(key3);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**
