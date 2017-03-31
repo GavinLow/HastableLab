@@ -61,8 +61,17 @@ public class SoccerDatabase implements SoccerDB
      * @see SoccerDB#getPlayer(String, String)
      */
     @Override
-	public SoccerPlayer getPlayer(String firstName, String lastName) {
-        return null;
+	public SoccerPlayer getPlayer(String firstName, String lastName)
+    {
+        String key_2 = firstName + "##" + lastName;
+        if (hashtable1.containsKey(key_2))
+        {
+            return hashtable1.get(key_2);
+        }
+        else
+        {
+            return null;
+        }
     }
 
     /**
