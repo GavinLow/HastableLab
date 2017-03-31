@@ -37,7 +37,7 @@ public class SoccerDatabase implements SoccerDB
         else
         {
             hashtable1.put(firstName + "##" + lastName, firstName + lastName);
-            return false;
+            return true;
         }
 
 	}
