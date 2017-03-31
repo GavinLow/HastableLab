@@ -321,7 +321,8 @@ public class SoccerDatabase implements SoccerDB
      */
 	// read data from file
     @Override
-	public boolean readData(File file) {
+	public boolean readData(File file)
+    {
         return file.exists();
 	}
 
@@ -332,8 +333,35 @@ public class SoccerDatabase implements SoccerDB
      */
 	// write data to file
     @Override
-	public boolean writeData(File file) {
-        return false;
+	public boolean writeData(File file)
+    {
+        Set<String> keys = hashtable1.keySet();
+        try
+        {
+            PrintWriter writer = new PrintWriter(file);
+            for(String key: keys)
+            {
+                SoccerPlayer player = hashtable1.get(key);
+                writer.println(logString(player.getFirstName()));
+                writer.println(logString(player.getLastName()));
+                writer.println(logString(player.getTeamName()));
+                writer.println(logString("" + player.getUniform()));
+                writer.println(logString("" + player.getGoals()));
+                writer.println(logString("" + player.getShots()));
+                writer.println(logString("" + player.getFouls()));
+                writer.println(logString("" + player.getAssists()));
+                writer.println(logString("" + player.getSaves()));
+                writer.println(logString("" + player.getYellowCards()));
+                writer.println(logString("" + player.getRedCards()));
+
+            }
+            writer.close();
+            return true;
+        }
+        catch(IOException e)
+        {
+            return false;
+        }
 	}
 
     /**
