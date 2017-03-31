@@ -19,7 +19,7 @@ import java.util.*;
 public class SoccerDatabase implements SoccerDB
 {
 
-    Hashtable<String, SoccerPlayer> hashtable1 = new Hashtable<String, SoccerPlayer>();
+    private Hashtable<String, SoccerPlayer> hashtable1 = new Hashtable<String, SoccerPlayer>();
 
     /**
      * add a player
@@ -30,16 +30,16 @@ public class SoccerDatabase implements SoccerDB
 	public boolean addPlayer(String firstName, String lastName,
 			int uniformNumber, String teamName)
     {
-        SoccerPlayer temp = new SoccerPlayer(firstName, lastName, uniformNumber, teamName);
-        String key = firstName + "##" + lastName;
+        SoccerPlayer temp_player = new SoccerPlayer(firstName, lastName, uniformNumber, teamName);
+        String key_1 = firstName + "##" + lastName;
 
-        if(hashtable1.containsKey(key))
+        if(hashtable1.containsKey(key_1))
         {
             return false;
         }
         else
         {
-            hashtable1.put(key, temp);
+            hashtable1.put(key_1, temp_player);
             return true;
         }
 
