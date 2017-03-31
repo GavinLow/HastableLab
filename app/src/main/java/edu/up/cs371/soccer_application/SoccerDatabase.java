@@ -90,7 +90,8 @@ public class SoccerDatabase implements SoccerDB
      * @see SoccerDB#bumpGoals(String, String)
      */
     @Override
-    public boolean bumpGoals(String firstName, String lastName) {
+    public boolean bumpGoals(String firstName, String lastName)
+    {
         return false;
     }
 
@@ -100,8 +101,20 @@ public class SoccerDatabase implements SoccerDB
      * @see SoccerDB#bumpAssists(String, String)
      */
     @Override
-    public boolean bumpAssists(String firstName, String lastName) {
-        return false;
+    public boolean bumpAssists(String firstName, String lastName)
+    {
+        String key4 = firstName + "##" + lastName;
+        if(hashtable1.containsKey(key4))
+        {
+            SoccerPlayer temp = hashtable1.get(key4);
+            temp.bumpAssists();
+            hashtable1.put(key4,temp);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**
@@ -110,8 +123,20 @@ public class SoccerDatabase implements SoccerDB
      * @see SoccerDB#bumpShots(String, String)
      */
     @Override
-    public boolean bumpShots(String firstName, String lastName) {
-        return false;
+    public boolean bumpShots(String firstName, String lastName)
+    {
+        String key5 = firstName + "##" + lastName;
+        if(hashtable1.containsKey(key5))
+        {
+            SoccerPlayer temp = hashtable1.get(key5);
+            temp.bumpShots();
+            hashtable1.put(key5,temp);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**
@@ -130,8 +155,20 @@ public class SoccerDatabase implements SoccerDB
      * @see SoccerDB#bumpFouls(String, String)
      */
     @Override
-    public boolean bumpFouls(String firstName, String lastName) {
-        return false;
+    public boolean bumpFouls(String firstName, String lastName)
+    {
+        String key6 = firstName + "##" + lastName;
+        if(hashtable1.containsKey(key6))
+        {
+            SoccerPlayer temp = hashtable1.get(key6);
+            temp.bumpFouls();
+            hashtable1.put(key6,temp);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**
@@ -140,8 +177,20 @@ public class SoccerDatabase implements SoccerDB
      * @see SoccerDB#bumpYellowCards(String, String)
      */
     @Override
-    public boolean bumpYellowCards(String firstName, String lastName) {
-        return false;
+    public boolean bumpYellowCards(String firstName, String lastName)
+    {
+        String key7 = firstName + "##" + lastName;
+        if(hashtable1.containsKey(key7))
+        {
+            SoccerPlayer temp = hashtable1.get(key7);
+            temp.bumpYellowCards();
+            hashtable1.put(key7,temp);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**
