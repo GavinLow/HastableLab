@@ -221,7 +221,8 @@ public class SoccerDatabase implements SoccerDB
      */
 	// get the nTH player
 	@Override
-    public SoccerPlayer playerNum(int idx, String teamName) {
+    public SoccerPlayer playerNum(int idx, String teamName)
+    {
         return null;
     }
 
